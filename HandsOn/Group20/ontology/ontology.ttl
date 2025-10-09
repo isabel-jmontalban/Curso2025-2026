@@ -1,70 +1,141 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix ns: <http://www.owl-ontologies.com/ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ns: a owl:Ontology ;
-    mod:createdWith <https://chowlk.linkeddata.es/> .
+dcterms:contributor a owl:AnnotationProperty .
 
-ns:hasAddress a owl:DatatypeProperty ;
-    rdfs:label "has address" .
+dcterms:created a owl:AnnotationProperty .
 
-ns:hasArea a owl:DatatypeProperty ;
-    rdfs:label "has area" .
+dcterms:creator a owl:AnnotationProperty .
 
-ns:hasAreaCode a owl:DatatypeProperty ;
-    rdfs:label "has area code" .
+dcterms:description a owl:AnnotationProperty .
 
-ns:hasCatCode a owl:DatatypeProperty ;
-    rdfs:label "has cat code" .
+dcterms:license a owl:AnnotationProperty .
 
-ns:hasCategory a owl:DatatypeProperty ;
-    rdfs:label "has category" .
+dcterms:title a owl:AnnotationProperty .
 
-ns:hasCountry a owl:DatatypeProperty ;
-    rdfs:label "has country" .
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
 
-ns:hasEmail a owl:DatatypeProperty ;
-    rdfs:label "has email" .
+vann:preferredNamespaceUri a owl:AnnotationProperty .
 
-ns:hasFamily a owl:DatatypeProperty ;
-    rdfs:label "has family" .
+<http://www.owl-ontologies.com/ns#hasAddress> a owl:DatatypeProperty ;
+    rdfs:label "has address" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
 
-ns:hasId a owl:DatatypeProperty ;
-    rdfs:label "has id" .
+<http://www.owl-ontologies.com/ns#hasArea> a owl:DatatypeProperty ;
+    rdfs:label "has area" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
 
-ns:hasLatitude a owl:DatatypeProperty ;
-    rdfs:label "has latitude" .
+<http://www.owl-ontologies.com/ns#hasAreaCode> a owl:DatatypeProperty ;
+    rdfs:label "has area code" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:integer .
 
-ns:hasLocation a owl:ObjectProperty ;
+<http://www.owl-ontologies.com/ns#hasCategory> a owl:DatatypeProperty ;
+    rdfs:label "has category" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
+
+<http://www.owl-ontologies.com/ns#hasCategoryCode> a owl:DatatypeProperty ;
+    rdfs:label "has category code" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:integer .
+
+<http://www.owl-ontologies.com/ns#hasCountry> a owl:DatatypeProperty ;
+    rdfs:label "has country" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
+
+<http://www.owl-ontologies.com/ns#hasEmail> a owl:DatatypeProperty ;
+    rdfs:label "has email" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
+
+<http://www.owl-ontologies.com/ns#hasFamily> a owl:DatatypeProperty ;
+    rdfs:label "has family" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
+
+<http://www.owl-ontologies.com/ns#hasId> a owl:DatatypeProperty ;
+    rdfs:label "has id" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
+
+<http://www.owl-ontologies.com/ns#hasLatitude> a owl:DatatypeProperty ;
+    rdfs:label "has latitude" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Location> ;
+    rdfs:range xsd:double .
+
+<http://www.owl-ontologies.com/ns#hasLocation> a owl:ObjectProperty ;
     rdfs:label "has location" ;
-    rdfs:domain ns:Parking ;
-    rdfs:range ns:Location .
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range <http://www.owl-ontologies.com/ns#Location> .
 
-ns:hasLongitude a owl:DatatypeProperty ;
-    rdfs:label "has longitude" .
+<http://www.owl-ontologies.com/ns#hasLongitude> a owl:DatatypeProperty ;
+    rdfs:label "has longitude" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Location> ;
+    rdfs:range xsd:double .
 
-ns:hasName a owl:DatatypeProperty ;
-    rdfs:label "has name" .
+<http://www.owl-ontologies.com/ns#hasName> a owl:DatatypeProperty ;
+    rdfs:label "has name" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:string .
 
-ns:hasState a owl:DatatypeProperty ;
-    rdfs:label "has state" .
+<http://www.owl-ontologies.com/ns#hasState> a owl:DatatypeProperty ;
+    rdfs:label "has state" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Location> ;
+    rdfs:range xsd:string .
+
+<http://www.owl-ontologies.com/ns#hasType> a owl:DatatypeProperty ;
+    rdfs:label "has type" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Location> ;
+    rdfs:range xsd:string .
+
+<http://www.owl-ontologies.com/ns#hasURLIcon> a owl:DatatypeProperty ;
+    rdfs:label "has u r l icon" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Parking> ;
+    rdfs:range xsd:anyURI .
+
+<http://www.owl-ontologies.com/ns#isEMTParking> a owl:DatatypeProperty ;
+    rdfs:label "is e m t parking" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Location> ;
+    rdfs:range xsd:boolean .
 
 ns:hasTown a owl:DatatypeProperty ;
-    rdfs:label "has town" .
+    rdfs:label "has town" ;
+    rdfs:domain <http://www.owl-ontologies.com/ns#Location> ;
+    rdfs:range xsd:string .
 
-ns:hasType a owl:DatatypeProperty ;
-    rdfs:label "has type" .
+owl:priorVersion a owl:AnnotationProperty .
 
-ns:hasURLIcon a owl:DatatypeProperty ;
-    rdfs:label "has u r l icon" .
+owl:versionIRI a owl:AnnotationProperty .
 
-ns:isEMTParking a owl:DatatypeProperty ;
-    rdfs:label "is e m t parking" .
+owl:versionInfo a owl:AnnotationProperty .
 
-ns:Location a owl:Class ;
+ns: a owl:Ontology ;
+    dcterms:contributor <https://example.org/people#ContributorURI> ;
+    dcterms:created "2025-10-07"^^xsd:date ;
+    dcterms:creator <https://example.org/people#AuthorURI> ;
+    dcterms:description "Ontology that describes parkings and their locations."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:title "Parking ontology"@en ;
+    vann:preferredNamespacePrefix "ns" ;
+    vann:preferredNamespaceUri ns: ;
+    owl:priorVersion <http://www.owl-ontologies.com/ns/0.9.0> ;
+    owl:versionIRI <http://www.owl-ontologies.com/ns/1.0.0> ;
+    owl:versionInfo "1.0.0" ;
+    mod:createdWith <https://chowlk.linkeddata.es/> .
+
+<http://www.owl-ontologies.com/ns#Location> a owl:Class ;
     rdfs:label "Location" .
 
-ns:Parking a owl:Class ;
+<http://www.owl-ontologies.com/ns#Parking> a owl:Class ;
     rdfs:label "Parking" .
 
+ns:Parking owl:disjointWith ns:Location .

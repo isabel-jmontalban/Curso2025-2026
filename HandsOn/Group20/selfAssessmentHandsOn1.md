@@ -2,16 +2,16 @@
 ## Assignment 1
 
 ### 📑 `README.md`
-- [x] Includes the **names** and **GitHub users** of all group members
+- [x] Includes the names and GitHub users of all group members
 
 ---
 
-### 📁 `CSV` directory
-- [x] Contains the **dataset file**: **`parkings.csv`**
+### 📁 `csv` directory
+- [x] Contains the dataset file: `parkings.csv`
 > 📄 [Open parkings.csv](./csv/parkings.csv)
 ---
 
-### 📁 `Requirements` directory
+### 📁 `requirements` directory
 
 #### 📄 `datasetRequirements.html`
 - [x] Discusses whether the selected dataset satisfies the requirements

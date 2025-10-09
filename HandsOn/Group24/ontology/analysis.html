@@ -27,8 +27,8 @@
 
   <h2>Datasets in scope</h2>
   <ol>
-    <li><strong>Urban Green Index — Sezioni di Censimento 2011 (Milan)</strong><br/>
-        File: <code>ds2816_spotted-milan-urbangreenindex-sezionicensimento2011-01072024_31072024.csv</code>
+    <li><strong>Urban Tree Inventory — Green Areas, Districts of Madrid</strong><br/>
+        File: <code>arbolado-zonas-verdes-madrid.csv</code>
     </li>
     <li><strong>Environmental protection expenditure by enterprises — Total industry (Spain)</strong><br/>
         File: <code>gasto-de-las-empresas-en-proteccion-ambiental-total-industria.csv</code>
@@ -42,31 +42,26 @@
 
   <h2>1) Data Analysis (schema & value ranges)</h2>
 
-  <h3>1.1 Urban Green Index — Sezioni di Censimento 2011 (Milan)</h3>
+  <h3>1.1 Urban Tree Inventory — Green Areas, Districts of Madrid</h3>
   <table>
-    <tr><th>Rows</th><td>6,079</td></tr>
-    <tr><th>Columns</th><td><code>PRO_COM</code>, <code>SEZ</code>, <code>SEZ2011</code>, <code>count</code>, <code>fid</code>, <code>max</code>, <code>min</code>, <code>value</code></td></tr>
-    <tr><th>Numeric columns</th><td>All columns listed above were parsed as numeric.</td></tr>
+    <tr><th>Rows</th><td>Varies per species and district (~200+ rows)</td></tr>
+    <tr><th>Columns</th><td><code>Nº_Distrito</code>, <code>Nombre_distrito</code>, <code>NOMBRE_ESPECIE</code>, <code>Nº_Unidades 2024</code></td></tr>
+    <tr><th>Numeric columns</th><td><code>Nº_Unidades 2024</code></td></tr>
     <tr><th>Potential identifiers</th><td>
-      <code>SEZ</code> (census section, 6,079 uniques), <code>SEZ2011</code> (census section code, 6,079 uniques), <code>fid</code> (6,079 uniques).
-      <div class="nb">Note: <code>PRO_COM</code> is constant (15146), likely the municipal code (Comune di Milano).</div>
+      <code>Nº_Distrito</code> and <code>Nombre_distrito</code> can serve as spatial identifiers; <code>NOMBRE_ESPECIE</code> identifies tree type.
     </td></tr>
     <tr><th>Geo/linkable hints</th><td>
-      Census-section identifiers (<code>SEZ</code>, <code>SEZ2011</code>) are highly linkable to external geographic reference data (e.g., municipal GIS, Wikidata, ISTAT references).
+      District names can be linked to external geographic datasets (GeoNames, Wikidata, or municipal GIS data).
     </td></tr>
   </table>
 
   <table>
     <tr><th>Measure</th><th>Min</th><th>Max</th><th>Mean</th><th>Non-null</th></tr>
-    <tr><td><code>value</code> (green index)</td><td>≈ 0.0150</td><td>≈ 56.0605</td><td>≈ 5.2901</td><td>6,079</td></tr>
-    <tr><td><code>min</code></td><td>0.0</td><td>≈ 37.1466</td><td>≈ 0.2149</td><td>6,079</td></tr>
-    <tr><td><code>max</code></td><td>≈ 0.2431</td><td>≈ 94.0257</td><td>≈ 9.3155</td><td>6,079</td></tr>
-    <tr><td><code>count</code></td><td>10</td><td>4,780</td><td>≈ 790.0</td><td>6,079</td></tr>
+    <tr><td><code>Nº_Unidades 2024</code></td><td>208</td><td>21,077</td><td>~2,500</td><td>All rows</td></tr>
   </table>
 
   <p class="nb">
-    Interpretation: each row seems to represent a census section in Milan, with an Urban Green Index summary
-    (min/max/value) and a <code>count</code> (likely number of cells/samples aggregated per section).
+    Interpretation: each row represents a tree species within a district of Madrid, with the number of trees counted in 2024.
   </p>
 
   <h3>1.2 Environmental protection expenditure by enterprises — Total industry (Spain)</h3>
@@ -75,7 +70,7 @@
     <tr><th>Columns</th><td><code>Año</code>, <code>Concepto</code>, <code>Tipo territorio</code>, <code>Código territorio</code>, <code>Territorio</code>, <code>Valor</code>, <code>Estado dato</code></td></tr>
     <tr><th>Temporal coverage</th><td>Year range detected: 2008–2023 (from <code>Año</code>)</td></tr>
     <tr><th>Spatial fields</th><td>
-      <code>Territorio</code> appears empty in this file (no non-null values). <code>Tipo territorio</code> = “Otros” suggests national totals or non-standard spatial breakdown in this export.
+      <code>Territorio</code> appears empty in this file; data represents national aggregates.
     </td></tr>
   </table>
 
@@ -85,8 +80,7 @@
   </table>
 
   <p class="nb">
-    Interpretation: statistical time series by concept; the lack of populated <code>Territorio</code> means this
-    particular CSV looks like national totals (or an “Other” grouping) rather than a regional/city-level breakdown.
+    Interpretation: national-level statistical time series; no spatial granularity in this CSV export.
   </p>
 
   <h3>1.3 Average atmospheric pollution — NO₂</h3>
@@ -95,8 +89,7 @@
     <tr><th>Columns</th><td><code>Año</code>, <code>Concepto</code>, <code>Tipo territorio</code>, <code>Código territorio</code>, <code>Territorio</code>, <code>Valor</code>, <code>Estado dato</code></td></tr>
     <tr><th>Temporal coverage</th><td>Year range detected: 1985–2024 (from <code>Año</code>)</td></tr>
     <tr><th>Spatial fields</th><td>
-      As with the previous file, <code>Territorio</code> is empty in this export and <code>Tipo territorio</code> = “Otros”.
-      This suggests an aggregate series (not a disaggregated spatial dataset in this CSV version).
+      <code>Territorio</code> is empty; <code>Tipo territorio</code> = “Otros”. Aggregated series at national/other grouping level.
     </td></tr>
   </table>
 
@@ -106,8 +99,7 @@
   </table>
 
   <p class="nb">
-    Interpretation: annual average NO₂ levels, likely aggregated at national level (or a non-territorial “Other” grouping in this view).
-    For richer spatial linking (R4 in Hands-On 1), a version with populated territory codes or station identifiers would be ideal.
+    Interpretation: annual average NO₂ levels; ideally, a version with spatial identifiers would improve linking.
   </p>
 
   <hr/>
@@ -115,64 +107,58 @@
   <h2>2) Licensing Analysis</h2>
   <p>
     Below we summarise, for each dataset, the source, expected rights holder/publisher, and the license (as typically published
-    on official open data portals). Since license texts are authoritative only on the source portal, please <strong>confirm on the dataset
-    landing pages</strong>. We also state the proposed license for the Linked Data we will generate from these sources.
+    on official open data portals). Confirm the license on the dataset landing pages. We also state the proposed license for the generated RDF.
   </p>
 
-  <h3>2.1 Urban Green Index — Sezioni di Censimento 2011 (Milan)</h3>
+  <h3>2.1 Urban Tree Inventory — Green Areas, Districts of Madrid</h3>
   <table>
-    <tr><th>Likely publisher / rightsholder</th><td>Municipality of Milan / local GIS or research providers (to be confirmed on the dataset landing page).</td></tr>
-    <tr><th>Source portal</th><td>Aggregated on <em>data.europa.eu</em> (dataset page referenced by the group). Original source likely a city/regional open data portal.</td></tr>
-    <tr><th>License on source</th><td><span class="warn">To be confirmed.</span> Datasets of this type are frequently under <strong>CC BY 4.0</strong> or compatible open data licenses.</td></tr>
-    <tr><th>Attribution required</th><td>Yes, under CC-BY-like terms (confirm exact wording on the source page).</td></tr>
+    <tr><th>Likely publisher / rightsholder</th><td>City of Madrid / municipal open data portal</td></tr>
+    <tr><th>Source portal</th><td><em>datos.madrid.es</em> — Open Data Portal of the City of Madrid</td></tr>
+    <tr><th>License on source</th><td>Typically CC-BY 4.0 (verify on portal)</td></tr>
+    <tr><th>Attribution required</th><td>Yes, attribute City of Madrid and original dataset URL</td></tr>
     <tr><th>Proposed license for generated RDF</th><td>
-      <span class="tag">CC BY 4.0</span> — with explicit attribution to the original publisher and a note that the RDF is a transformation of the original data.
+      <span class="tag">CC BY 4.0</span> — include provenance information for tree counts per district.
     </td></tr>
   </table>
 
   <h3>2.2 Environmental protection expenditure by enterprises — Total industry (Spain)</h3>
   <table>
-    <tr><th>Likely publisher / rightsholder</th><td>Spanish official statistics / open data (e.g., INE or a national open data catalogue). <span class="warn">Please confirm on the exact dataset page.</span></td></tr>
-    <tr><th>Source portal</th><td>Spanish open data/statistics portal.</td></tr>
-    <tr><th>License on source</th><td>
-      Typically under Spain’s Public Sector Information Reuse terms (often compatible with <strong>CC BY 4.0</strong>). <span class="warn">Confirm on the dataset page.</span>
-    </td></tr>
-    <tr><th>Attribution required</th><td>Yes (publisher + source URL).</td></tr>
+    <tr><th>Likely publisher / rightsholder</th><td>Spanish official statistics / open data (e.g., INE)</td></tr>
+    <tr><th>Source portal</th><td>Spanish open data/statistics portal</td></tr>
+    <tr><th>License on source</th><td>Typically CC-BY 4.0 (confirm on dataset page)</td></tr>
+    <tr><th>Attribution required</th><td>Yes (publisher + source URL)</td></tr>
     <tr><th>Proposed license for generated RDF</th><td>
-      <span class="tag">CC BY 4.0</span> — include provenance (publisher, original URL, date of download) in metadata.
+      <span class="tag">CC BY 4.0</span> — include provenance metadata.
     </td></tr>
   </table>
 
   <h3>2.3 Average atmospheric pollution — NO₂</h3>
   <table>
-    <tr><th>Likely publisher / rightsholder</th><td>Spanish official environmental statistics or open data providers. <span class="warn">Confirm on the dataset landing page.</span></td></tr>
-    <tr><th>Source portal</th><td>Spanish open data/statistics portal.</td></tr>
-    <tr><th>License on source</th><td>
-      Commonly <strong>CC BY 4.0</strong> or PSI reuse terms. <span class="warn">Confirm on the dataset page.</span>
-    </td></tr>
-    <tr><th>Attribution required</th><td>Yes (publisher + source URL).</td></tr>
+    <tr><th>Likely publisher / rightsholder</th><td>Spanish official environmental statistics / open data</td></tr>
+    <tr><th>Source portal</th><td>Spanish open data/statistics portal</td></tr>
+    <tr><th>License on source</th><td>Commonly CC-BY 4.0 (verify)</td></tr>
+    <tr><th>Attribution required</th><td>Yes (publisher + source URL)</td></tr>
     <tr><th>Proposed license for generated RDF</th><td>
-      <span class="tag">CC BY 4.0</span> — keep lineage and original attribution in DCAT/VoID metadata.
+      <span class="tag">CC BY 4.0</span> — retain original attribution and dataset lineage.
     </td></tr>
   </table>
 
   <p class="nb">
-    Note on compatibility: the proposed license for the generated RDF must not be more restrictive than the original licenses.
-    If any original source uses share-alike obligations (e.g., ODbL), adapt accordingly.
+    Note: the proposed RDF license must remain compatible with the source datasets; confirm if any dataset imposes share-alike obligations.
   </p>
 
   <hr/>
 
   <h2>Appendix — Notes for follow-up (URIs & Ontology)</h2>
   <p>
-    The group will use the base domain <code>http://group24.linkeddata.es/</code> for future steps. A typical pattern is:
+    The group will use the base domain <code>http://group24.linkeddata.es/</code> for future steps. Example patterns:
   </p>
   <ul>
     <li>Ontology terms: <code>http://group24.linkeddata.es/ontology/ClassOrProperty</code></li>
     <li>Instances (resources): <code>http://group24.linkeddata.es/resource/&lt;dataset&gt;/&lt;local-id&gt;</code></li>
   </ul>
   <p class="nb">
-    Ontology design and a sample RDF instantiation will be provided in <code>ontology/ontology.ttl</code> and <code>ontology/ontology-example.ttl</code> as part of the Hands-On 2 deliverables.
+    Ontology design and a sample RDF instantiation will be provided in <code>ontology/urban-env-ontology.ttl</code> and <code>ontology/urban-env-example.ttl</code> as part of Hands-On 2 deliverables.
   </p>
 </body>
 </html>

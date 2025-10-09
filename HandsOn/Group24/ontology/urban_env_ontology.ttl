@@ -17,23 +17,23 @@
 <http://group24.linkeddata.es/ontology/>
     a owl:Ontology ;
     dct:title "Urban Environmental Ontology (Group24)"@en ;
-    dct:description "Lightweight ontology to describe census sections, air-quality observations (NO2), green index measurements, and environmental expenditure records."@en ;
+    dct:description "Lightweight ontology to describe districts, tree observations, air-quality observations (NO2), and environmental expenditure records."@en ;
     dct:creator "Group24" ;
-    owl:versionInfo "1.0.0" ;
+    owl:versionInfo "1.0.1" ;
     rdfs:seeAlso <http://group24.linkeddata.es/> .
 
 #################################################################
 # Core Classes
 #################################################################
 
-ex:CensusSection a owl:Class ;
-    rdfs:label "Census Section"@en ;
-    rdfs:comment "Smallest statistical/administrative area used in the Milan UGI dataset."@en .
+ex:District a owl:Class ;
+    rdfs:label "District"@en ;
+    rdfs:comment "Administrative district in Madrid for tree observations."@en .
 
-ex:AirQualityStation a owl:Class ;
-    rdfs:label "Air Quality Station"@en ;
-    rdfs:comment "Physical site where air-quality is measured. Use if station identifiers are available."@en ;
-    rdfs:subClassOf sosa:FeatureOfInterest .
+ex:TreeObservation a owl:Class ;
+    rdfs:label "Tree Observation"@en ;
+    rdfs:comment "Observation of a specific tree species count within a district."@en ;
+    rdfs:subClassOf ex:Observation .
 
 ex:Area a owl:Class ;
     rdfs:label "Area"@en ;
@@ -49,17 +49,13 @@ ex:NO2Observation a owl:Class ;
     rdfs:label "NO2 Observation"@en ;
     rdfs:subClassOf ex:Observation .
 
-ex:GreenIndexObservation a owl:Class ;
-    rdfs:label "Green Index Observation"@en ;
-    rdfs:subClassOf ex:Observation .
-
 ex:ExpenditureRecord a owl:Class ;
     rdfs:label "Environmental Expenditure Record"@en ;
     rdfs:comment "Record for environmental protection expenditure (national or regional aggregates)."@en .
 
 ex:ObservedProperty a owl:Class ;
     rdfs:label "Observed Property"@en ;
-    rdfs:comment "Property being observed (e.g., NO2, GreenIndex, Expenditure)."@en ;
+    rdfs:comment "Property being observed (e.g., NO2, TreeCount, Expenditure)."@en ;
     rdfs:subClassOf sosa:ObservableProperty .
 
 #################################################################
@@ -68,7 +64,7 @@ ex:ObservedProperty a owl:Class ;
 
 ex:featureOfInterest a owl:ObjectProperty ;
     rdfs:label "feature of interest"@en ;
-    rdfs:comment "The feature that the observation is about (station, census section, area)."@en ;
+    rdfs:comment "The feature that the observation is about (district, area, etc.)."@en ;
     rdfs:domain ex:Observation ;
     rdfs:range sosa:FeatureOfInterest ;
     rdfs:subPropertyOf sosa:hasFeatureOfInterest .
@@ -113,14 +109,10 @@ ex:year a owl:DatatypeProperty ;
     rdfs:domain rdfs:Resource ;
     rdfs:range xsd:gYear .
 
-ex:sectionCode a owl:DatatypeProperty ;
-    rdfs:label "census section code"@en ;
-    rdfs:domain ex:CensusSection ;
-    rdfs:range xsd:string .
-
-ex:municipalityCode a owl:DatatypeProperty ;
-    rdfs:label "municipality code"@en ;
-    rdfs:domain ex:Area ;
+ex:treeSpecies a owl:DatatypeProperty ;
+    rdfs:label "tree species"@en ;
+    rdfs:comment "Species name of the observed trees."@en ;
+    rdfs:domain ex:TreeObservation ;
     rdfs:range xsd:string .
 
 ex:concept a owl:DatatypeProperty ;
@@ -148,8 +140,8 @@ ex:label a owl:DatatypeProperty ;
 res:prop/NO2 a ex:ObservedProperty ;
     rdfs:label "Nitrogen Dioxide (NO2)"@en .
 
-res:prop/GreenIndex a ex:ObservedProperty ;
-    rdfs:label "Urban Green Index"@en .
+res:prop/TreeCount a ex:ObservedProperty ;
+    rdfs:label "Tree Count"@en .
 
 res:prop/Expenditure a ex:ObservedProperty ;
     rdfs:label "Environmental Protection Expenditure"@en .

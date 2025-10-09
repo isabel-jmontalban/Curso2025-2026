@@ -4,4 +4,4 @@
 
 - Juan Manuel Novoa Guevara- [@Juanmng02]
 - Jaime Robledo Sanchez - [@Jugueto]
-- Yungu Rhee - [@]   
+- Yungu Rhee - [@Yungu03]   

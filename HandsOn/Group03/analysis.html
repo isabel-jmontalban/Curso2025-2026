@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Análisis del conjunto de datos — Grupo 03</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.6;margin:2rem;max-width:900px;color:#111}
+    header{border-bottom:1px solid #ddd;padding-bottom:1rem;margin-bottom:1rem}
+    h1{margin:0 0 .2rem}
+    h2{margin-top:1.25rem}
+    pre, code{background:#f6f8fa;padding:.2rem .4rem;border-radius:4px}
+    .meta{font-size:.95rem;color:#555}
+    .badge{display:inline-block;padding:.15rem .5rem;border-radius:4px;border:1px solid #ddd;background:#fafafa;margin-right:.4rem;font-size:.9rem}
+    table{border-collapse:collapse;width:100%;margin-top:.5rem}
+    th,td{border:1px solid #eee;padding:.5rem;text-align:left}
+    .small{font-size:.92rem;color:#444}
+    footer{margin-top:2rem;border-top:1px solid #eee;padding-top:1rem;color:#666;font-size:.9rem}
+  </style>
+</head>
+<body>
+  
+
+  <section id="dataset">
+    <h2>1. Descripción de la(s) fuente(s) de datos</h2>
+    <p>Breve descripción de la(s) fuente(s): origen, responsables, formato, versión y alcance.</p>
+    <ul>
+      <li><strong>Fuente:</strong> Nombre del dataset o API</li>
+      <li><strong>URL:</strong> <a href="https://datos.comunidad.madrid/dataset/calidad_aire_estaciones" target="_blank" rel="noopener">https://datos.comunidad.madrid/dataset/calidad_aire_estaciones</a></li>
+      <li><strong>Formato:</strong> CSV </li>
+      <li><strong>Fecha de extracción:</strong> 30-Sep-2025</li>
+      <li><strong>Contacto / propietario:</strong> nombre@organizacion.org</li>
+    </ul>
+  </section>
+
+  <section id="license">
+    <h2>2. Licencia de la(s) fuente(s) de datos</h2>
+    <p>La fuente de datos proviene del Ayuntamiento de Madrid</p>
+    <table>
+      <tr><th>Dataset</th><th>Licencia</th><th>"https://datos.madrid.es/portal/site/egob/menuitem.3efdb29b813ad8241e830cc2a8a409a0/?vgnextoid=108804d4aab90410VgnVCM100000171f5a0aRCRD&vgnextchannel=b4c412b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default"</th></tr>
+      <tr>
+      <td>Licencia de Reutilización de la Información del Sector Público (RISP)</td>
+      <td><a href="https://datos.madrid.es/egob/catalogo/aviso-legal" target="_blank" rel="noopener">Aviso legal de datos.madrid.es</a></td>
+      </tr>
+    </table>
+    <h3>Condiciones principales</h3>
+  <ul>
+    <li>Se autoriza la reutilización de los datos con fines <strong>comerciales y no comerciales</strong>, siempre que no implique una actividad administrativa pública.</li>
+    <li>Debe <strong>citarse la fuente</strong> como: “Origen de los datos: Ayuntamiento de Madrid”.</li>
+    <li>Debe indicarse la <strong>fecha de la última actualización</strong> cuando esté disponible.</li>
+    <li>No se puede <strong>desnaturalizar el sentido de la información</strong> ni sugerir apoyo o patrocinio por parte del Ayuntamiento.</li>
+    <li>Se debe conservar la información y metadatos originales sobre las condiciones de reutilización.</li>
+    <li>Está prohibida la <strong>reidentificación de personas</strong> en datos anonimizados.</li>
+  </ul>
+
+  <h3>Exclusión de responsabilidad</h3>
+  <p>El Ayuntamiento de Madrid no se hace responsable del uso o interpretaciones que los reutilizadores realicen sobre los datos, ni de los posibles daños o perjuicios derivados de dicho uso.</p>
+
+  <h3>Cesión de derechos</h3>
+  <p>El Ayuntamiento concede una <strong>cesión gratuita y no exclusiva</strong> de los derechos de propiedad intelectual sobre los documentos y datos reutilizables, permitiendo su reproducción, distribución, comunicación pública o transformación para todo el mundo y durante el plazo máximo permitido por la Ley.</p>
+
+  <p class="small">Referencia legal: Ley 37/2007, de 16 de noviembre, sobre reutilización de la información del sector público (BOE-A-2007-19814).</p>
+</section>
+<h1>Análisis de Calidad del Aire en Madrid</h1>
+
+<h2>Análisis estaciones</h2>
+  
+<p>Se ha analizado todas las estaciones distinguiendo qué gases tienen marcados, la zona en la que se encuentra, tipo de calle y otros parámetros relevantes. Por ejemplo, la estación con código <strong>28079004</strong>, correspondiente a <strong>Plaza de España</strong>, ubicada en una zona de <em>urbana tráfico</em>, presenta marcados valores de NO2 y BTX, mientras que otros contaminantes como SO2 y PM2.5 muestran valores más bajos.</p>
+
+<p>La ubicación geográfica de la estación se encuentra en <strong>longitud -3.7122567</strong> y <strong>latitud 40.4238823</strong>, con una altitud de 637 metros, lo que puede influir en la dispersión de los contaminantes. Este análisis permite identificar las zonas con mayor carga contaminante y su relación con el tipo de vía, facilitando la planificación.
+
+
+
+<h2>2. Observaciones Generales</h2>
+<p>Debido al análisis que hemos llevado a cabo hemos llegado a las siguientes conclusiones:</p>
+<ul>
+  <li>Las estaciones en zonas de tráfico intenso presentan niveles más altos de NO2 y BTX.</li>
+  <li>Las zonas suburbanas o parques muestran niveles bajos de contaminantes, siendo más seguras para población sensible.</li>
+  <li>PM10 y PM2.5 tienden a aumentar en avenidas y plazas grandes, especialmente cerca de intersecciones concurridas.</li>
+  <li>O3 es más alto en zonas abiertas y suburbanas debido a la fotoconversión y menor tráfico.</li>
+</ul>
+
+
+</body>
+</html>
+
+

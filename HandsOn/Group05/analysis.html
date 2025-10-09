@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis of Air Quality in Barcelona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .license {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Analysis</h1>
+    </header>
+
+    <section id="license">
+        <h2>License</h2>
+        <p class="license">
+            This project is under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
+            You can use it, modify it, or distribute it under the terms of said license.
+        </p>
+        <p class="license">
+            This project also uses data from the Dataset **“2018 06 Juny qualitat aire BCN csv”**, available under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
+            Published by **Open Source BCN**.
+            No changes have been done yet over the original data.
+        </p>
+    </section>
+
+    <hr>
+
+    <section id="data-analysis">
+        <h2>DATA ANALYSIS</h2>
+
+        <p>
+            First of all, we need to understand the information described in our CSV. We have a compilation of measurements about the air quality in the city of Barcelona. As we didn’t find any documentation on this dataset, we had to try and find out the meaning of the columns.
+        </p>
+
+        <h3>Meaning of the Columns</h3>
+        <p>After some time, we ended with the following:</p>
+        <ul>
+            <li><code>nom_cabina</code>: Represents the name of the district inside the city of Barcelona.</li>
+            <li><code>qualitat_aire</code>: Tells us if the air is good to breathe or not.</li>
+            <li><code>codi_dtes</code>: Might be just a code related to a specific district.</li>
+            <li><code>zqa</code>: Is a column from which we cannot extract information, since it only contains <code>01</code>.</li>
+            <li><code>codi_eoi</code>: Is also a code related to a specific district.</li>
+            <li><code>longitud</code> and <code>latitud</code>: Are both data that represent the longitude and latitude of the sample location taken, respectively.</li>
+            <li><code>hora_o3</code>, <code>hora_o2</code>, and <code>hora_pm10</code>: Represent the time of the day in which the data was taken.</li>
+            <li><code>qualitat_o3</code>, <code>qualitat_no2</code>, <code>quealitat_pm10</code>: Are qualitative representations of the air quality.</li>
+            <li><code>valor_o3</code>, <code>valor_no2</code>, <code>valor_pm10</code>: Represent the actual value of the data taken, measured in **µg/m³**.</li>
+            <li><code>generat</code>: Has information about the date and hour the data was processed.</li>
+            <li><code>dateTime</code>: Is a numeric code that represent different instances of <code>generat</code>.</li>
+        </ul>
+
+        <p>
+            Now that we know what every column means, we can start to talk about the data itself. There are **3262 rows** in our Data Set. Apart from the obvious, we can see that there are some instances without actual data, those we’ll need to clean out of our csv.
+        </p>
+
+        <h3>Location and Quality Values</h3>
+        <p>
+            We can talk about the longitude and latitude values, which tells us that there are several machines extracting the data in different points inside the districts of Barcelona. According to google maps, the instances we checked are **“real”** locations inside the district which they are supposed to be into.
+        </p>
+
+        <p>
+            The qualitative values from the <code>qualitat_xx</code> rows are not well defined. As we don’t have documentation, we can’t be sure of the correctness of them. They supposedly correspond to the value of the columns <code>valor_xx</code>, but we don’t know the ranges, in which they can say the quality is **“Buena”** (Good), **“Regular”** (Regular) or **“Pobra”** (Poor), which are the only 3 values of those columns.
+        </p>
+
+        <p>The ranges of <code>value_o3</code>, <code>value_n2</code>, and <code>value_pm10</code> are... <small>(*It is indicated here that the ranges are incomplete in the original text*)</small></p>
+
+        <p>
+            In all 3 columns <code>valor_xx</code>, the data seems to make sense. Even though we don’t know what real data referring to this should look like, we can intuit the difference in measures by the area and the hour it was taken in. For instance, all the measurements taken at dawn seem to be smaller than those taken during the day in the same place. This may have something to do with the differences in traffic during the day. Also the same places seem to have similar measurements throughout the month at the same hours, which tells us that these data might really relate with correct measurements.
+        </p>
+    </section>
+
+    <hr>
+
+    <section id="resource-naming-strategy">
+        <h2>RESOURCE NAMING STRATEGY</h2>
+
+        <p>We will use: **#**</p>
+        <p>Domain: <code>http://airecalidadbcn.linkeddata.es/</code></p>
+        <p>Path: <code>http://airecalidadbcn.linkeddata.es/g05</code></p>
+
+        <h3>Ontology:</h3>
+        <p><code>http://airecalidadbcn.linkeddata.es/g05/ontology#</code></p>
+
+        <h3>Resources:</h3>
+        <ul>
+            <li>**District:** <code>http://airecalidadbcn.linkeddata.es/g05/District/{District_name}</code>
+                <br><em>Description: The name of the district the data comes from.</em></li>
+            <li>**Quality:** <code>http://airecalidadbcn.linkeddata.es/g05/Quality/{DateTime}</code></li>
+        </ul>
+
+        <h3>Properties:</h3>
+
+        <h4>Object properties:</h4>
+        <ul>
+            <li><code>has_date_time</code>: property of the same district (data = <code>code_dte</code>)</li>
+            <li><code>has_value</code>: property of the same district (data = <code>code_eoi</code>)</li>
+            <li><code>has_hash_code</code>: property of the sample (data = <code>longitud, latitud</code>)</li>
+        </ul>
+
+        <h4>Data properties:</h4>
+        <ul>
+            <li><code>has_hour_o3</code>: Shows the time when the measuring of o3 was taken.</li>
+            <li><code>has_value_o3</code>: Shows the amount of o3 contaminant.</li>
+            <li><code>has_hour_no2</code>: Shows the time when the measuring of no2 was taken.</li>
+            <li><code>has_value_no2</code>: Shows the amount of no2 contaminant.</li>
+            <li><code>has_hour_pm10</code>: Shows the time when the measuring of pm10 was taken.</li>
+            <li><code>has_value_pm10</code>: Shows the amount of pm10 contaminant.</li>
+        </ul>
+    </section>
+
+</body>
+</html>

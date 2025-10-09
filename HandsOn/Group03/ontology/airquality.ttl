@@ -1,0 +1,100 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix schema: <http://schema.org/> .
+@prefix aq:   <https://w3id.org/aq/Group03/ontology#> .
+
+<https://w3id.org/aq/Group03/> a owl:Ontology ;
+  rdfs:label "Air Quality Stations Ontology (Madrid)"@en ;
+  rdfs:comment "Lightweight ontology describing air quality monitoring stations in Madrid. Based on Comunidad de Madrid Open Data."@en ;
+  owl:versionInfo "1.0.0" .
+
+### Classes
+aq:Station a owl:Class ;
+  rdfs:label "Station"@en ;
+  rdfs:comment "Air quality monitoring station."@en .
+
+aq:Pollutant a owl:Class ;
+  rdfs:label "Pollutant"@en ;
+  rdfs:comment "Air pollutant monitored by the station."@en .
+
+aq:Address a owl:Class ;
+  rdfs:label "Address"@en ;
+  rdfs:comment "Address of the station."@en .
+
+### Object Properties
+aq:hasAddress a owl:ObjectProperty ;
+  rdfs:label "has address"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range aq:Address .
+
+aq:monitorsPollutant a owl:ObjectProperty ;
+  rdfs:label "monitors pollutant"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range aq:Pollutant .
+
+### Datatype Properties
+aq:code a owl:DatatypeProperty ;
+  rdfs:label "station code"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range xsd:string .
+
+aq:shortCode a owl:DatatypeProperty ;
+  rdfs:label "short code"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range xsd:string .
+
+aq:stationName a owl:DatatypeProperty ;
+  rdfs:label "station name"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range xsd:string .
+
+aq:altitude a owl:DatatypeProperty ;
+  rdfs:label "altitude (m)"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range xsd:decimal .
+
+aq:typeCode a owl:DatatypeProperty ;
+  rdfs:label "type code"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range xsd:string .
+
+aq:typeName a owl:DatatypeProperty ;
+  rdfs:label "type name"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range xsd:string .
+
+aq:activationDate a owl:DatatypeProperty ;
+  rdfs:label "activation date"@en ;
+  rdfs:domain aq:Station ;
+  rdfs:range xsd:date .
+
+aq:viaClass a owl:DatatypeProperty ;
+  rdfs:label "via class"@en ;
+  rdfs:domain aq:Address ;
+  rdfs:range xsd:string .
+
+aq:viaName a owl:DatatypeProperty ;
+  rdfs:label "via name"@en ;
+  rdfs:domain aq:Address ;
+  rdfs:range xsd:string .
+
+aq:viaNumber a owl:DatatypeProperty ;
+  rdfs:label "via number"@en ;
+  rdfs:domain aq:Address ;
+  rdfs:range xsd:string .
+
+### Geometry (WGS84)
+wgs84:lat a owl:DatatypeProperty .
+wgs84:long a owl:DatatypeProperty .
+
+### Pollutants
+aq:NO2   a aq:Pollutant ; rdfs:label "Nitrogen dioxide (NO2)"@en .
+aq:SO2   a aq:Pollutant ; rdfs:label "Sulfur dioxide (SO2)"@en .
+aq:CO    a aq:Pollutant ; rdfs:label "Carbon monoxide (CO)"@en .
+aq:PM10  a aq:Pollutant ; rdfs:label "Particulate matter (PM10)"@en .
+aq:PM2_5 a aq:Pollutant ; rdfs:label "Particulate matter (PM2.5)"@en .
+aq:O3    a aq:Pollutant ; rdfs:label "Ozone (O3)"@en .
+aq:BTX   a aq:Pollutant ; rdfs:label "BTX (Benzene, Toluene, Xylenes)"@en .

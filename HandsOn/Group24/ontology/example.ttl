@@ -9,8 +9,8 @@
 # Example datasets (metadata shells)
 #################################################################
 
-<http://group24.linkeddata.es/dataset/ugi-milan-2011> a dcat:Dataset ;
-  dct:title "Urban Green Index — Milan Census Sections 2011"@en .
+<http://group24.linkeddata.es/dataset/trees-madrid-2024> a dcat:Dataset ;
+  dct:title "Urban Tree Inventory — Green Areas, Districts of Madrid (2024)"@en .
 
 <http://group24.linkeddata.es/dataset/no2-es-annual> a dcat:Dataset ;
   dct:title "Average Atmospheric Pollution — NO2 (Spain, annual aggregates)"@en .
@@ -22,38 +22,35 @@
 # Canonical observed properties (reused from ontology)
 #################################################################
 
-# res:prop/NO2, res:prop/GreenIndex, res:prop/Expenditure
+# res:prop/NO2, res:prop/TreeCount, res:prop/Expenditure
 # are defined in the ontology. We reuse them here.
-# (If needed, you can reference them directly without redeclaration.)
 
 #################################################################
-# Example 1: Milan census section + UGI observation
+# Example 1: Madrid district + tree observation
 #################################################################
 
-# A census section identified by SEZ2011
-res:census-section/IT-MI-2011-000123 a ex:CensusSection ;
-  ex:sectionCode "000123" ;
-  ex:label "Milan Census Section 000123 (2011)"@en .
+# District example
+res:district/MAD-Centro a ex:District ;
+  ex:label "Centro District, Madrid"@en .
 
-# Green Index observation for that section
-res:observation/ugi/IT-MI-2011-000123 a ex:GreenIndexObservation ;
-  ex:featureOfInterest res:census-section/IT-MI-2011-000123 ;
-  ex:observedProperty <http://group24.linkeddata.es/resource/prop/GreenIndex> ;
-  ex:value "5.29"^^xsd:decimal ;
-  ex:unit "index (arbitrary scale)" ;
-  ex:resultTime "2024-07-31"^^xsd:date ;
+# Tree species observation
+res:observation/tree/MAD-Centro-LigustrumJaponicum a ex:TreeObservation ;
+  ex:featureOfInterest res:district/MAD-Centro ;
+  ex:observedProperty <http://group24.linkeddata.es/resource/prop/TreeCount> ;
+  ex:value "2605"^^xsd:decimal ;
+  ex:unit "number of trees" ;
+  ex:resultTime "2024-12-31"^^xsd:date ;
   ex:year "2024"^^xsd:gYear ;
-  ex:inDataset <http://group24.linkeddata.es/dataset/ugi-milan-2011> .
+  ex:concept "Ligustrum japonicum trees in Centro district" ;
+  ex:inDataset <http://group24.linkeddata.es/dataset/trees-madrid-2024> .
 
 #################################################################
 # Example 2: Spain NO2 annual observation
 #################################################################
 
-# Country-level area (generic)
 res:area/ES a ex:Area ;
   ex:label "Spain"@en .
 
-# NO2 observation (annual aggregate)
 res:observation/no2/ES-annual-2024 a ex:NO2Observation ;
   ex:featureOfInterest res:area/ES ;
   ex:observedProperty <http://group24.linkeddata.es/resource/prop/NO2> ;

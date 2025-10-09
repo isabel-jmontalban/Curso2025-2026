@@ -1,0 +1,109 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix wgs84: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix schema: <http://schema.org/> .
+@prefix aq:   <https://w3id.org/aq/Group03/ontology#> .
+
+# Sample RDF instances (first 5 stations from the dataset)
+<https://w3id.org/aq/Group03/station/28079004> a aq:Station ;
+  aq:code "28079004" ;
+  aq:stationName "Plaza de España" ;
+  aq:altitude "637"^^xsd:decimal ;
+  aq:typeCode "UT" ;
+  aq:typeName "Urbana tráfico" ;
+  aq:activationDate "01/12/1998"^^xsd:date ;
+    aq:monitorsPollutant aq:NO2 ;
+  aq:monitorsPollutant aq:SO2 ;
+  aq:monitorsPollutant aq:CO ;
+  aq:hasAddress <https://w3id.org/aq/Group03/address/28079004> .
+
+<https://w3id.org/aq/Group03/address/28079004> a aq:Address ;
+  schema:streetAddress "Plaza de España" ;
+  aq:viaClass "PLAZA" ;
+  aq:viaName "ESPAÑA" ;
+  aq:viaNumber "DE" ;
+  wgs84:lat "40.4238823"^^xsd:decimal ;
+  wgs84:long "-3.7122567"^^xsd:decimal .
+
+<https://w3id.org/aq/Group03/station/28079008> a aq:Station ;
+  aq:code "28079008" ;
+  aq:stationName "Escuelas Aguirre" ;
+  aq:altitude "672"^^xsd:decimal ;
+  aq:typeCode "UT" ;
+  aq:typeName "Urbana tráfico" ;
+  aq:activationDate "01/12/1998"^^xsd:date ;
+    aq:monitorsPollutant aq:NO2 ;
+  aq:monitorsPollutant aq:SO2 ;
+  aq:monitorsPollutant aq:CO ;
+  aq:monitorsPollutant aq:PM10 ;
+  aq:monitorsPollutant aq:PM2_5 ;
+  aq:monitorsPollutant aq:O3 ;
+  aq:monitorsPollutant aq:BTX ;
+  aq:hasAddress <https://w3id.org/aq/Group03/address/28079008> .
+
+<https://w3id.org/aq/Group03/address/28079008> a aq:Address ;
+  schema:streetAddress "Entre C/ Alcalá y C/ O’ Donell" ;
+  aq:viaClass "CALLE" ;
+  aq:viaName "ALCALA" ;
+  aq:viaNumber "DE" ;
+  wgs84:lat "40.4215533"^^xsd:decimal ;
+  wgs84:long "-3.6823158"^^xsd:decimal .
+
+<https://w3id.org/aq/Group03/station/28079011> a aq:Station ;
+  aq:code "28079011" ;
+  aq:stationName "Ramón y Cajal" ;
+  aq:altitude "709"^^xsd:decimal ;
+  aq:typeCode "UT" ;
+  aq:typeName "Urbana tráfico" ;
+  aq:activationDate "01/12/1998"^^xsd:date ;
+    aq:monitorsPollutant aq:NO2 ;
+  aq:monitorsPollutant aq:BTX ;
+  aq:hasAddress <https://w3id.org/aq/Group03/address/28079011> .
+
+<https://w3id.org/aq/Group03/address/28079011> a aq:Address ;
+  schema:streetAddress "Avda. Ramón y Cajal  esq. C/ Príncipe de Vergara" ;
+  aq:viaClass "CALLE" ;
+  aq:viaName "PRINCIPE DE VERGARA" ;
+  aq:viaNumber "DEL" ;
+  wgs84:lat "40.4514734"^^xsd:decimal ;
+  wgs84:long "-3.6773491"^^xsd:decimal .
+
+<https://w3id.org/aq/Group03/station/28079016> a aq:Station ;
+  aq:code "28079016" ;
+  aq:stationName "Arturo Soria" ;
+  aq:altitude "695"^^xsd:decimal ;
+  aq:typeCode "UF" ;
+  aq:typeName "Urbana fondo" ;
+  aq:activationDate "01/12/1998"^^xsd:date ;
+    aq:monitorsPollutant aq:NO2 ;
+  aq:monitorsPollutant aq:O3 ;
+  aq:hasAddress <https://w3id.org/aq/Group03/address/28079016> .
+
+<https://w3id.org/aq/Group03/address/28079016> a aq:Address ;
+  schema:streetAddress "C/ Arturo Soria  esq. C/  Vizconde de los Asilos" ;
+  aq:viaClass "CALLE" ;
+  aq:viaName "VIZCONDE DE LOS ASILOS" ;
+  aq:viaNumber "DEL" ;
+  wgs84:lat "40.4400457"^^xsd:decimal ;
+  wgs84:long "-3.6392422"^^xsd:decimal .
+
+<https://w3id.org/aq/Group03/station/28079017> a aq:Station ;
+  aq:code "28079017" ;
+  aq:stationName "Villaverde" ;
+  aq:altitude "601"^^xsd:decimal ;
+  aq:typeCode "UF" ;
+  aq:typeName "Urbana fondo" ;
+  aq:activationDate "01/12/1998"^^xsd:date ;
+    aq:monitorsPollutant aq:NO2 ;
+  aq:monitorsPollutant aq:O3 ;
+  aq:hasAddress <https://w3id.org/aq/Group03/address/28079017> .
+
+<https://w3id.org/aq/Group03/address/28079017> a aq:Address ;
+  schema:streetAddress "C/ Juan Peñalver" ;
+  aq:viaClass "CALLE" ;
+  aq:viaName "JUAN PEÑALVER" ;
+  aq:viaNumber "DE" ;
+  wgs84:lat "40.347147"^^xsd:decimal ;
+  wgs84:long "-3.7133167"^^xsd:decimal .
