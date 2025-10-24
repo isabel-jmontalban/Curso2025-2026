@@ -1,0 +1,37 @@
+{
+  "@context": {
+    "@base": "http://example.org/resource/",
+    "resource": "http://example.org/resource/",
+    "ontology": "http://example.org/def/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "contains": { "@id": "ontology:contains", "@type": "@id" },
+    "hasMeasurement": { "@id": "ontology:hasMeasurement", "@type": "@id" },
+    "hasTemperature": { "@id": "ontology:hasTemperature", "@type": "xsd:int" },
+    "atTime": { "@id": "ontology:atTime", "@type": "xsd:dateTime" },
+    "hasOwner": { "@id": "ontology:hasOwner", "@type": "@id" },
+    "hasName": { "@id": "ontology:hasName", "@type": "xsd:string" }
+  },
+  "@graph": [
+    {
+      "@id": "resource:ClassRoom03",
+      "contains": ["resource:Sensor347", "resource:Table322"]
+    },
+    {
+      "@id": "resource:Sensor347",
+      "hasMeasurement": "resource:Measurement8432"
+    },
+    {
+      "@id": "resource:Measurement8432",
+      "hasTemperature": 29,
+      "atTime": "2022-09-12T12:01:12"
+    },
+    {
+      "@id": "resource:Table322",
+      "hasOwner": "resource:ETSIInformaticos"
+    },
+    {
+      "@id": "resource:ETSIInformaticos",
+      "hasName": "ETSI Informáticos"
+    }
+  ]
+}

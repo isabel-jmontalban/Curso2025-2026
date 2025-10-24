@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dataset Requirements – Air Quality in Madrid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 40px;
+      background-color: #fafafa;
+      color: #333;
+    }
+    h1, h2 {
+      color: #005a8d;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #e7f2fa;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dataset Requirements Analysis</h1>
+  <p><strong>Dataset title:</strong> Air quality. Real-time data</p>
+  <p><strong>Source:</strong> <a href="https://data.europa.eu/data/datasets/https-datos-madrid-es-egob-catalogo-212531-0-calidad-aire-tiempo-real?locale=en" target="_blank">
+    data.europa.eu – Ayuntamiento de Madrid
+  </a></p>
+  <p><strong>File format:</strong> CSV</p>
+  <p><strong>License:</strong> <a href="https://datos.madrid.es/portal/site/egob/menuitem.3efdb29b813ad8241e830cc2a8a409a0/?vgnextoid=108804d4aab90410VgnVCM100000171f5a0aRCRD&vgnextchannel=b4c412b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default" target="_blank">Open Data License – Ayuntamiento de Madrid</a></p>
+
+    <p><strong>Entities in the selected dataset that can be linked with other datasets:</strong></p>
+  <ul>
+    <li><code>ESTACION</code> identifies the monitoring stations and can be linked to geographical datasets or station metadata (e.g., coordinates, district names).</li>
+    <li><code>MAGNITUD</code> identifies the pollutant being measured and can be linked to external vocabularies such as DBpedia or environmental thesauri.</li>
+    <li>The hourly columns (<code>H01–H24</code>) provide temporal granularity for a specific day’s measurements.</li>
+  </ul>
+
+    <p><strong>Entities in other datasets that can be linked to this dataset:</strong></p>
+  <ul>
+    <li>Air quality station metadata datasets (linked via <code>ESTACION</code> or <code>PUNTO_MUESTREO</code>).</li>
+    <li>Pollutant reference datasets such as DBpedia (linked via <code>MAGNITUD</code>).</li>
+    <li>Geospatial or urban environment datasets (linked via the geographic location of the monitoring points).</li>
+  </ul>
+
+  <h2>Requirement Evaluation</h2>
+  <table>
+    <tr>
+      <th>Requirement</th>
+      <th>Description</th>
+      <th>Evaluation</th>
+    </tr>
+
+    <tr>
+      <td><strong>R1</strong></td>
+      <td>Data are in one of the selected smart city domains.</td>
+      <td>
+        <strong>Fulfilled.</strong>  
+        This dataset belongs to the <em>environmental monitoring</em> domain, as it provides real-time measurements of air quality across Madrid, which is a key aspect of Smart City initiatives.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>R2</strong></td>
+      <td>Data are available as a CSV file.</td>
+      <td>
+        <strong>Fulfilled.</strong>  
+        The dataset is provided directly in CSV format and can be downloaded from the official data portal.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>R3</strong></td>
+      <td>Data have an open license so they can be published.</td>
+      <td>
+        <strong>Fulfilled.</strong>  
+        The data is covered by the <em>Open Data License of the Ayuntamiento de Madrid</em>, which explicitly allows reuse, modification, redistribution, and both commercial and non-commercial use, as long as the source is cited and information is not distorted.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>R4</strong></td>
+      <td>Data can be easily linked with generic real-world entities (e.g., locations).</td>
+      <td>
+        <strong>Fulfilled.</strong>  
+        Each observation includes a station identifier and location information. These can be linked to geographic entities such as districts or coordinates of Madrid’s monitoring stations.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>R5 (optional)</strong></td>
+      <td>Documentation exists for the data.</td>
+      <td>
+        <strong>Partially fulfilled.</strong>  
+        Basic documentation is provided on the dataset’s webpage, explaining the variables and measurement methodology. However, detailed metadata (e.g., variable units or sensor calibration details) are limited.
+      </td>
+    </tr>
+
+    <tr>
+      <td><strong>R6 (optional)</strong></td>
+      <td>Data can come from multiple data sources.</td>
+      <td>
+        <strong>Partially fulfilled.</strong>  
+        The dataset aggregates data from several monitoring stations across the city (multiple sources in the same network). However, it does not directly integrate with external datasets unless manually linked (e.g., with geographic or meteorological data).
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

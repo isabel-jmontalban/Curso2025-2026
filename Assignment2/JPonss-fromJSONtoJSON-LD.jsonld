@@ -1,0 +1,63 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "name": "schema:name",
+    "description": "schema:description",
+    "instructor": "schema:instructor",
+    "knowsAbout": "schema:knowsAbout",
+    "parent": "schema:parent"
+  },
+  "@type": "schema:Person",
+  "name": "Jorge Pons Almonacid",
+  "birthPlace": {
+    "@type": "schema:Place",
+    "name": "Madrid"
+  },
+  "age": 21,
+  "alumniOf": {
+    "@type": "schema:CollegeOrUniversity",
+    "name": "Universidad Politécnica de Madrid"
+  },
+  "parent": [
+    {
+      "@type": "schema:Person",
+      "name": "Alberto"
+    },
+    {
+      "@type": "schema:Person",
+      "name": "Esperanza"
+    }
+  ],
+  "knowsAbout": [
+    {
+      "@type": "schema:CourseInstance",
+      "courseMode": "on-site",
+      "name": "Semantic web",
+      "instructor": {
+        "@type": "schema:Person",
+        "name": "Oscar Corcho"
+      },
+      "description": "The objective of this course is to provide the theoretical and practical foundation for the methodological and technological foundations involved in the generation and publication of vocabularies and data on the Linked Data Web, as well as in the form of knowledge graphs."
+    },
+    {
+      "@type": "schema:CourseInstance",
+      "courseMode": "on-site",
+      "name": "Reconocimiento de formas",
+      "instructor": {
+        "@type": "schema:Person",
+        "name": "Luis Baumela"
+      },
+      "description": "The objective of this course is to introduce students to the fundamentals of classification and some of its applications, primarily in the context of data and image analysis."
+    },
+    {
+      "@type": "schema:CourseInstance",
+      "courseMode": "on-site",
+      "name": "Administración de Sistemas Informáticos",
+      "instructor": {
+        "@type": "schema:Person",
+        "name": "Fernando Pérez Costoya"
+      },
+      "description": "The objective of this course is to teach students the general foundations of the tasks and responsibilities of a systems administrator."
+    }
+  ]
+}

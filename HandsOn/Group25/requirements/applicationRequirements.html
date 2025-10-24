@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Requisitos de la Aplicación — GroupXX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>body{font-family:system-ui,Arial,sans-serif;max-width:900px;margin:2rem auto;line-height:1.5}h2{margin-top:1.5rem}</style>
+</head>
+<body>
+  <h1>Aplicación prevista: SafeRoutes Madrid</h1>
+  <p><b>Objetivo:</b> Visualizar y analizar la siniestralidad vial en Madrid (2024) para identificar puntos calientes y patrones por distrito, franja horaria y tipos de accidente.</p>
+  <p><b>Usuarios objetivo:</b> Ciudadanía, investigadores y administraciones.</p>
+
+  <h2>Requisitos funcionales</h2>
+  <ol>
+    <li>Mapa interactivo con puntos de accidentes; al hacer clic, mostrar ficha (fecha, hora, tipo de accidente, lesividad).</li>
+    <li>Filtros por distrito, rango horario, tipo de accidente, lesividad, tipo de vehículo.</li>
+    <li>Gráficos agregados (por distrito, día de la semana, rango horario).</li>
+    <li>Exportación de subconjuntos de datos y <em>endpoint</em> RDF (para trabajos posteriores de la asignatura).</li>
+  </ol>
+
+  <h2>Requisitos no funcionales</h2>
+  <ul>
+    <li>Usabilidad: interfaz clara, filtros visibles, leyenda en el mapa.</li>
+    <li>Rendimiento: respuesta &lt; 2s para filtros locales (muestras &lt; 50.000 filas).</li>
+    <li>Accesibilidad: contraste suficiente, etiquetas en controles, <code>alt</code> en imágenes.</li>
+    <li>Licencia y atribución: mostrar fuente y licencia de datos en el pie.</li>
+  </ul>
+
+  <h2>Mockups (bocetos)</h2>
+  <p>Guarda imágenes en <code>requirements/mockups/</code> y referencia aquí. Por ejemplo:</p>
+  <img src="mockups/mapa.png" alt="Pantalla principal con mapa y filtros" width="700">
+  <img src="mockups/graficos.png" alt="Pantalla de gráficos por distrito y hora" width="700">
+
+  <h2>Datos y enlazado</h2>
+  <p>Entrada: <code>csv/2024_Accidentalidad.csv</code>. Se planifica conversión de UTM a lat/lon y publicación en RDF, enlazando con límites de distritos y vías públicas (trabajos siguientes).</p>
+
+  <h2>Riesgos y supuestos</h2>
+  <ul>
+    <li>Datos provisionales hasta 6 meses tras cierre del año.</li>
+    <li>No hay datos por barrio; se usará nivel de distrito.</li>
+  </ul>
+
+  <footer style="margin-top:2rem;font-size:.9rem;color:#555">
+    Fuente de datos: Ayuntamiento de Madrid (Policía Municipal). Reutilización con atribución.
+  </footer>
+</body>
+</html>

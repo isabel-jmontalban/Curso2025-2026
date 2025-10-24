@@ -1,0 +1,3 @@
+station_id,station_name,datetime,pollutant,value,unit,latitude,longitude,municipality
+28079001,Plaza del Carmen,2025-09-15T08:05:00Z,NO2,42.0,µg/m³,40.4186,-3.7038,Madrid
+28079004,Pza. España,2025-09-15T08:10:00Z,PM10,18.0,µg/m³,40.4237,-3.7123,Madrid

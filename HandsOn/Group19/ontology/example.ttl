@@ -13,6 +13,7 @@
 mf-resource:Parking/13468 a mf:Parking ;
     rdfs:label "Aparcamiento público Velázquez - Juan Bravo" ;
     schema:name "Aparcamiento público. Velázquez - Juan Bravo" ;
+    schema:openingHours "Abierto 24 horas" ; # <-- LINEA ANADIDA
     schema:geo [
         a schema:GeoCoordinates ;
         schema:latitude "40.431752322"^^xsd:decimal ;

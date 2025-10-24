@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Requisitos del Dataset — GroupXX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>body{font-family:system-ui,Arial,sans-serif;max-width:900px;margin:2rem auto;line-height:1.5}code{background:#f6f8fa;padding:.1rem .3rem;border-radius:4px}</style>
+</head>
+<body>
+  <h1>Requisitos del Dataset</h1>
+
+  <h2>Dataset</h2>
+  <p><b>Nombre:</b> Accidentes de Tráfico de la Ciudad de Madrid (año 2024).<br>
+     <b>Fuente:</b> Policía Municipal / Ayuntamiento de Madrid (datos abiertos).<br>
+     <b>Fichero:</b> <code>csv/2024_Accidentalidad.csv</code><br>
+     <b>Documentación:</b> Estructura del conjunto de datos (PDF) disponible en <code>requirements/Estructura_ConjuntoDatos_Accidentesv2.pdf</code>.
+  </p>
+
+  <h2>Evaluación de requisitos</h2>
+  <ul>
+    <li><b>R1. Dominio Smart City:</b> <u>Movilidad / Seguridad vial</u> ✅</li>
+    <li><b>R2. Formato CSV:</b> El dataset está en <u>CSV</u> ✅</li>
+    <li><b>R3. Licencia abierta:</b> Datos de reutilización de información pública del Ayuntamiento (equivalente a uso abierto con atribución). <u>Publicables</u> ✅</li>
+    <li><b>R4. Enlazable con entidades:</b> Incluye <u>fecha</u>, <u>hora</u> (en rangos), <u>distrito</u>, <u>códigos de distrito</u>, <u>calles</u> y <u>coordenadas UTM</u> → linkeable con callejero, distritos, OpenStreetMap, capas geográficas, etc. ✅</li>
+    <li><b>R5. Documentación (opcional):</b> Sí: PDF de estructura con campos, dominios y notas. ✅</li>
+    <li><b>R6. Múltiples fuentes (opcional):</b> Procede de una fuente principal (Policía Municipal). ❌</li>
+  </ul>
+
+  <h2>Campos relevantes (resumen)</h2>
+  <ul>
+    <li><code>num_expediente</code> (ID), <code>fecha</code>, <code>hora</code>, <code>localizacion</code>, <code>numero</code></li>
+    <li><code>cod_distrito</code>, <code>distrito</code></li>
+    <li><code>tipo_accidente</code>, <code>estado_meteorologico</code>, <code>tipo_vehiculo</code>, <code>tipo_persona</code></li>
+    <li><code>rango_edad</code>, <code>sexo</code>, <code>cod_lesividad</code>, <code>lesividad</code></li>
+    <li><code>coordenada_x_utm</code>, <code>coordenada_y_utm</code>, <code>positiva_alcohol</code>, <code>positiva_droga</code></li>
+  </ul>
+
+  <h2>Notas para el enlazado</h2>
+  <p>Las <u>coordenadas UTM</u> pueden transformarse a WGS84 (lat/lon) para su uso en mapas web; <u>cod_distrito</u> y <u>distrito</u> permiten vincular con límites administrativos; <u>fecha</u> y <u>hora</u> habilitan análisis temporal.</p>
+</body>
+</html>

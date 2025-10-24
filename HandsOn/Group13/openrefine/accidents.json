@@ -1,0 +1,244 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "positiva_droga",
+    "description": "Eliminar columna positiva_droga"
+  },
+  {
+    "op": "core/row-removal",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "tipo_accidente",
+          "expression": "value",
+          "columnName": "tipo_accidente",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [],
+          "selectBlank": true,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "description": "Remove rows"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "estado_meteorológico",
+          "expression": "value",
+          "columnName": "estado_meteorológico",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "LLuvia intensa",
+                "l": "LLuvia intensa"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "LLuvia intensa"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lluvia"
+      }
+    ],
+    "description": "Editar celdas en masa en columna estado_meteorológico"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "estado_meteorológico",
+          "expression": "value",
+          "columnName": "estado_meteorológico",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Lluvia débil",
+                "l": "Lluvia débil"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Lluvia débil"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Lluvia"
+      }
+    ],
+    "description": "Editar celdas en masa en columna estado_meteorológico"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "estado_meteorológico",
+          "expression": "value",
+          "columnName": "estado_meteorológico",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Nevando",
+                "l": "Nevando"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Nevando"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nevando/Granizando"
+      }
+    ],
+    "description": "Editar celdas en masa en columna estado_meteorológico"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [
+        {
+          "type": "list",
+          "name": "estado_meteorológico",
+          "expression": "value",
+          "columnName": "estado_meteorológico",
+          "invert": false,
+          "omitBlank": false,
+          "omitError": false,
+          "selection": [
+            {
+              "v": {
+                "v": "Granizando",
+                "l": "Granizando"
+              }
+            }
+          ],
+          "selectBlank": false,
+          "selectError": false
+        }
+      ],
+      "mode": "row-based"
+    },
+    "columnName": "estado_meteorológico",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "Granizando"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "Nevando/Granizando"
+      }
+    ],
+    "description": "Editar celdas en masa en columna estado_meteorológico"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "localizacion",
+    "expression": "grel:value.replace(\"CALL.\", \"Calle\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna localizacion usando la expresión grel:value.replace(\"CALL.\", \"Calle\")"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "localizacion",
+    "expression": "grel:value.replace(\"Calle\", \"CALLE\")",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna localizacion usando la expresión grel:value.replace(\"Calle\", \"CALLE\")"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "cod_lesividad",
+    "description": "Eliminar columna cod_lesividad"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "lesividad",
+    "description": "Eliminar columna lesividad"
+  },
+  {
+    "op": "core/column-split",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "localizacion",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "/",
+    "regex": false,
+    "maxColumns": 0,
+    "description": "Dividir columna localizacion por separador"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "localizacion 3",
+    "description": "Eliminar columna localizacion 3"
+  }
+]

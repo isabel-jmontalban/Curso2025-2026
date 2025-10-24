@@ -1,0 +1,35 @@
+[
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "NOMBRE PARQUE",
+    "expression": "grel:cells[\"NOMBRE PARQUE\"].value + \"_\" + cells[\"ESPECIE\"].value",
+    "onError": "set-to-blank",
+    "newColumnName": "id_treecount",
+    "columnInsertIndex": 1,
+    "description": "Crear la columna id_treecount en el índice 1 basada en la columna NOMBRE PARQUE usando la expresión grel:cells[\"NOMBRE PARQUE\"].value + \"_\" + cells[\"ESPECIE\"].value"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "NOMBRE PARQUE",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "BOSQUE DE LOS ABRAZOS PERDIDOS"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "BOSQUE DE LOS ABRAZOS PERDIDOS"
+      }
+    ],
+    "description": "Editar celdas en masa en columna NOMBRE PARQUE"
+  }
+]

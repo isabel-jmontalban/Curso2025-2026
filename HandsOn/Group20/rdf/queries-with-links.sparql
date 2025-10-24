@@ -1,0 +1,36 @@
+############################################################
+# Query 5: URIs enlazadas de las localizaciones de parkings
+# Devuelve los nombres de los parkings y las URIs (enlazadas a Wikidata)
+# asociadas a sus localizaciones (propiedad ns:hasLocation).
+############################################################
+
+PREFIX ns: <http://www.owl-ontologies.com/ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?name ?uri
+WHERE {
+  ?p a ns:Parking ;
+     ns:hasName ?name ;
+     ns:hasLocation ?loc .
+  ?loc owl:sameAs ?uri .
+  FILTER(CONTAINS(STR(?uri), "wikidata.org/entity/"))
+}
+LIMIT 20
+
+
+############################################################
+# Query 6: URIs enlazadas directamente de los parkings
+# Devuelve los nombres de los parkings y las URIs (enlazadas a Wikidata)
+# asociadas directamente a cada recurso de parking.
+############################################################
+
+PREFIX ns: <http://www.owl-ontologies.com/ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?name ?uri
+WHERE {
+  ?p a ns:Parking ;
+     ns:hasName ?name ;
+     owl:sameAs ?uri .
+}
+LIMIT 20

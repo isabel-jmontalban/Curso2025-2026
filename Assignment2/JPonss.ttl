@@ -1,0 +1,16 @@
+@base <http://example.org/resource/> .
+@prefix resource: <http://example.org/resource/> .
+@prefix ontology: <http://example.org/def/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+resource:ClassRoom03 ontology:contains resource:Sensor347 ;
+                     ontology:contains resource:Table322 .
+
+resource:Sensor347 ontology:hasMeasurement resource:Measurement8432 .
+
+resource:Measurement8432 ontology:hasTemperature 29 ;
+                         ontology:atTime "2022-09-12T12:01:12"^^xsd:dateTime .
+
+resource:Table322 ontology:hasOwner resource:ETSIInformaticos .
+
+resource:ETSIInformaticos ontology:hasName "ETSI Informáticos" .

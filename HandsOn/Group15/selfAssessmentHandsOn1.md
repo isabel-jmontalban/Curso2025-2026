@@ -19,5 +19,5 @@
 
 ## Contributions
 - fransanchez6: búsqueda de datasets, verificación R1–R4, redacción inicial.
-- Abielmenda: revisión licencia y documentación, *mockups*.
+- Abielmenda, ChengJianZhou: revisión licencia y documentación, *mockups*.
 - esteralvarez1, Fentro2121: estructuración de requisitos, limpieza de muestra CSV.

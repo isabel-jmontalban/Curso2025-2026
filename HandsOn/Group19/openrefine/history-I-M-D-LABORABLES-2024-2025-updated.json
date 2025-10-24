@@ -1,0 +1,95 @@
+[
+  {
+    "op": "core/column-reorder",
+    "columnNames": [
+      "PK",
+      "NOMBRE",
+      "HORARIO",
+      "LATITUD",
+      "LONGITUD"
+    ],
+    "description": "Reorganizar columnas"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "PK",
+    "newColumnName": "id",
+    "description": "Renombra la columna PK a id"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "NOMBRE",
+    "newColumnName": "name",
+    "description": "Renombra la columna NOMBRE a name"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "HORARIO",
+    "newColumnName": "openingHours",
+    "description": "Renombra la columna HORARIO a openingHours"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LATITUD",
+    "newColumnName": "latitud",
+    "description": "Renombra la columna LATITUD a latitud"
+  },
+  {
+    "op": "core/column-rename",
+    "oldColumnName": "LONGITUD",
+    "newColumnName": "longitude",
+    "description": "Renombra la columna LONGITUD a longitude"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna name usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "openingHours",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna openingHours usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "name",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna name usando la expresión value.trim()"
+  },
+  {
+    "op": "core/text-transform",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "openingHours",
+    "expression": "value.trim()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10,
+    "description": "Transforma el texto de las celdas en la columna openingHours usando la expresión value.trim()"
+  }
+]

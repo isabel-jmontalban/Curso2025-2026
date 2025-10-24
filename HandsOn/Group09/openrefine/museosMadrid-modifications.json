@@ -1,0 +1,45 @@
+[
+  {
+    "op": "core/column-removal",
+    "columnName": "PK",
+    "description": "Eliminar columna PK"
+  },
+  {
+    "op": "core/column-addition",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "baseColumnName": "NUM",
+    "expression": "grel:\"Calle: \" + cells[\"NOMBRE-VIA\"].value + \". Número: \" + value + if(isBlank(cells[\"PLANTA\"].value), \"\", \". Planta: \" + cells[\"PLANTA\"].value)",
+    "onError": "set-to-blank",
+    "newColumnName": "ADDRESS",
+    "columnInsertIndex": 12,
+    "description": "Crear la columna ADDRESS en el índice 12 basada en la columna NUM usando la expresión grel:\"Calle: \" + cells[\"NOMBRE-VIA\"].value + \". Número: \" + value + if(isBlank(cells[\"PLANTA\"].value), \"\", \". Planta: \" + cells[\"PLANTA\"].value)"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "NUM",
+    "description": "Eliminar columna NUM"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "PLANTA",
+    "description": "Eliminar columna PLANTA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "PUERTA",
+    "description": "Eliminar columna PUERTA"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ESCALERAS",
+    "description": "Eliminar columna ESCALERAS"
+  },
+  {
+    "op": "core/column-removal",
+    "columnName": "ORIENTACION",
+    "description": "Eliminar columna ORIENTACION"
+  }
+]

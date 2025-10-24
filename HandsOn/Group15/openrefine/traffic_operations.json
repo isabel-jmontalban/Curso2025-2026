@@ -1,0 +1,23 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Trim text",
+    "columnName": "station_name",
+    "expression": "value.trim()",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Normalize case",
+    "columnName": "municipality",
+    "expression": "value.toTitlecase()",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Convert to ISO date",
+    "columnName": "datetime",
+    "expression": "value.toDate().toString('yyyy-MM-dd'T'HH:mm:ss'Z'')",
+    "onError": "set-to-blank"
+  }
+]
